@@ -43,7 +43,7 @@ export default {
   }
   &__info {
     padding: 16px 16px * 2;
-    background-color: $color-gray-50;
+    background-color: $--color-gray-50;
     @include from('md') {
       width: 320px;
       position: absolute;
@@ -51,7 +51,7 @@ export default {
       top: 10vh;
 
       border-radius: 2px;
-      box-shadow: 0 1px 3px rgba($color-shade, 0.08);
+      box-shadow: 0 1px 3px rgba($--color-shade, 0.08);
       overflow: hidden;
     }
   }

@@ -72,18 +72,18 @@ export default {
     border: 0;
     width: 20px;
     height: 20px;
-    background: $color-gray-300;
+    background: $--color-gray-300;
     color: inherit;
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
 
     &:hover {
-      background: $color-gray-400;
+      background: $--color-gray-400;
     }
 
     &:active {
-      background: $color-gray-500;
+      background: $--color-gray-500;
     }
 
     &:focus {

@@ -19,8 +19,8 @@ export default {
   height: 24px;
   border-radius: 50%;
   box-shadow: 0 0 0 1px #ccc;
-  border: 12px solid $color-gray-50;
-  background: $color-primary-400;
+  border: 12px solid $--color-gray-50;
+  background: $--color-primary-400;
   box-sizing: border-box;
   transition: border-width linear;
   transition-duration: $timing-fast;

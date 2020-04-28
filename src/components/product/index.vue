@@ -79,7 +79,7 @@ export default {
       this.banners = [];
 
       const productKey = this.$route.params.productId || DEFAULT_PRODUCT_ID;
-      const [ productsResult, bannersResult ] = await Promise.all([
+      const [productsResult, bannersResult] = await Promise.all([
         getCollectionByKey(productKey),
         getCollectionByKey('banners'),
       ]);
@@ -110,12 +110,12 @@ export default {
 
   &__no-items-icon {
     margin-top: 20vh;
-    fill: $color-gray-400;
+    fill: $--color-gray-400;
   }
 
   &__no-items-text {
     margin-top: 16px;
-    color: $color-gray-400;
+    color: $--color-gray-400;
     font-family: $font-title;
     font-size: $font-size-300;
     text-align: center;

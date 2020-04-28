@@ -51,7 +51,7 @@ export default {
   z-index: 10;
   display: flex;
   justify-content: space-between;
-  background: $color-primary-400;
+  background: $--color-primary-400;
 
   &__button {
     max-width: 16px * 4;

@@ -215,14 +215,14 @@ $minFormHeight: 250px;
     padding: 4px 8px;
     box-sizing: border-box;
     color: inherit;
-    background: $color-gray-50;
+    background: $--color-gray-50;
     border: 0;
-    border-bottom: 1px solid $color-gray-300;
+    border-bottom: 1px solid $--color-gray-300;
     border-radius: 0;
 
     &:focus {
       outline: none;
-      border-color: $color-primary-400;
+      border-color: $--color-primary-400;
     }
   }
   & textarea {

@@ -15,7 +15,7 @@ export default {
   name: 'Delivery',
   data() {
     return {
-      content: null
+      content: null,
     };
   },
   async created() {
@@ -23,7 +23,7 @@ export default {
     this.title = title;
     this.content = content;
     this.ymapIframeLink = ymapIframeLink;
-  }
+  },
 };
 </script>
 
@@ -49,7 +49,7 @@ export default {
   }
   &__overlay {
     padding: 16px 16px * 2;
-    background-color: $color-gray-50;
+    background-color: $--color-gray-50;
     @include from('md') {
       width: 320px;
       position: absolute;
@@ -57,7 +57,7 @@ export default {
       top: 10vh;
 
       border-radius: 2px;
-      box-shadow: 0 1px 3px rgba($color-shade, 0.08);
+      box-shadow: 0 1px 3px rgba($--color-shade, 0.08);
       overflow: hidden;
     }
   }

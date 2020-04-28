@@ -69,8 +69,8 @@ export default {
   display: flex;
   flex-direction: column;
   z-index: 10;
-  color: $color-gray-900;
-  background: $color-primary-400;
+  color: $--color-gray-900;
+  background: $--color-primary-400;
 
   @include from('sm') {
     right: 50%;

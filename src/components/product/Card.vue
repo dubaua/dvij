@@ -10,26 +10,13 @@
       <h2>{{ product.title }}</h2>
       <p>{{ product.description }}</p>
       <template v-if="isSizeSwitchable">
-        <div class="switch">
-          <button
-            v-for="(productSize, sizeIndex) in product.sizes"
-            :key="productSize.sizeName"
-            @click="setSizeIndex(sizeIndex)"
-            class="switch__option"
-          >
-            {{ productSize.sizeName }}
-          </button>
-        </div>
-        <div v-if="chosenSize.options" class="switch">
-          <button
-            v-for="(option, optionIndex) in chosenSize.options"
-            :key="option.optionName"
-            @click="setOptionIndex(optionIndex)"
-            class="switch__option"
-          >
-            {{ option.optionName }}
-          </button>
-        </div>
+        <Console :options="product.sizes" label-key="sizeName" @change="setSizeIndex" />
+        <Console
+          v-if="chosenSize.options"
+          :options="chosenSize.options"
+          label-key="optionName"
+          @change="setOptionIndex"
+        />
       </template>
       <p v-else>{{ chosenSize.sizeName }}</p>
 
@@ -99,6 +86,9 @@ export default {
     setSizeIndex(sizeIndex) {
       this.sizeIndex = sizeIndex;
     },
+    setOptionIndex(optionIndex) {
+      console.log(optionIndex);
+    },
     handleAddToCard(product) {
       const { _id, categoryId, title } = product;
       const {
@@ -160,7 +150,7 @@ export default {
     }
     p {
       margin: 0 0 10px;
-      color: $color-gray-800;
+      color: $--color-gray-800;
       font: normal 16px/1.38 $font-body;
     }
   }
@@ -189,8 +179,8 @@ export default {
   }
 
   &__tag {
-    background: $color-gray-50;
-    color: $color-gray-900;
+    background: $--color-gray-50;
+    color: $--color-gray-900;
     font-size: $font-size-75;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -202,11 +192,11 @@ export default {
     border-radius: 50%;
 
     &--hit {
-      background-color: $color-gray-50;
+      background-color: $--color-gray-50;
     }
 
     &--new {
-      background-color: $color-primary-400;
+      background-color: $--color-primary-400;
     }
   }
 }

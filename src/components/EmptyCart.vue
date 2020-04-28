@@ -21,7 +21,7 @@ export default {
 
 .empty-cart {
   padding: 12px 0;
-  color: $color-gray-400;
+  color: $--color-gray-400;
   &__icon {
     margin: auto;
     fill: currentColor;

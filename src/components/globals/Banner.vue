@@ -43,15 +43,15 @@ export default {
     justify-content: center;
 
     &--default {
-      background: $color-gray-50;
+      background: $--color-gray-50;
     }
 
     &--primary {
-      background: $color-primary-400;
+      background: $--color-primary-400;
     }
 
     &--contrast {
-      background: $color-gray-900;
+      background: $--color-gray-900;
     }
   }
 

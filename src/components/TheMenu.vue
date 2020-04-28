@@ -29,7 +29,7 @@ export default {
 @import '~@/styles/_globals.scss';
 
 .menu {
-  background: $color-primary-400;
+  background: $--color-primary-400;
 
   @include from('xl') {
     display: flex;
@@ -47,20 +47,20 @@ export default {
       letter-spacing: 0;
     }
     text-decoration: none;
-    color: $color-gray-50;
+    color: $--color-gray-50;
     cursor: pointer;
     transition: background 160ms $ease-out, color 160ms $ease-out;
 
     &.router-link-exact-active {
-      background: $color-primary-500;
+      background: $--color-primary-500;
     }
 
     &:hover {
-      background: $color-primary-500;
+      background: $--color-primary-500;
     }
 
     &:active {
-      background: $color-primary-600;
+      background: $--color-primary-600;
     }
 
     @include from('xl') {

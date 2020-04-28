@@ -66,7 +66,7 @@ export default {
     Info,
     TheMenu,
     Zoom,
-    EmptyCart
+    EmptyCart,
   },
   data() {
     return {
@@ -78,7 +78,7 @@ export default {
     ...mapGetters(['somePanelsIsOpen', 'isZoomed']),
     getYear() {
       return new Date().getFullYear();
-    }
+    },
   },
   async created() {
     window.addEventListener('resize', debounce(160, this.onWindowSizeChange));
@@ -101,8 +101,8 @@ export default {
     },
     onWindowSizeChange() {
       this.setMobile(window.innerWidth < MOBILE_THRESHOLD);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -116,8 +116,8 @@ $panel-width: 320px;
   box-sizing: border-box;
   padding-bottom: 56px;
   min-height: 100vh;
-  background: $color-gray-50;
-  color: $color-gray-900;
+  background: $--color-gray-50;
+  color: $--color-gray-900;
 }
 
 @include from('xl') {
@@ -136,7 +136,7 @@ $panel-width: 320px;
   width: $panel-width;
   display: flex;
   flex-direction: column;
-  background: $color-gray-75;
+  background: $--color-gray-75;
   &__cart {
     margin-top: auto;
     overflow: auto;
@@ -160,8 +160,8 @@ $panel-width: 320px;
   padding: 16px 0;
   max-height: 100%;
   overflow: auto;
-  background: $color-gray-50;
-  color: $color-gray-900;
+  background: $--color-gray-50;
+  color: $--color-gray-900;
 
   &__title {
     text-align: center;

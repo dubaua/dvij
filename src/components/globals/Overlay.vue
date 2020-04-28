@@ -47,12 +47,12 @@ export default {
     position: absolute;
     right: 16px;
     top: 16px;
-    fill: $color-gray-700;
+    fill: $--color-gray-700;
     transition: color $timing-fast linear;
   }
 
   &:hover #{$overlay}__icon {
-    fill: $color-gray-400;
+    fill: $--color-gray-400;
   }
 }
 </style>
