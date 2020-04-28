@@ -1,27 +1,26 @@
 <template>
   <div class="card">
     <div class="card__preview">
-      <div v-if="tags.length" class="card__tags">
-        <div v-for="tag in tags" :key="tag" class="card__tag" :class="getTagClassName(tag)">{{ tag }}</div>
-      </div>
       <img ref="productImage" class="card__zoom" :src="photoUrl" :alt="product.title" @click="zoomImage" />
     </div>
     <div class="card__details">
       <h2>{{ product.title }}</h2>
       <p>{{ product.description }}</p>
-      <template v-if="isSizeSwitchable">
-        <Console :options="product.sizes" label-key="sizeName" @change="setSizeIndex" />
+      <div class="card__options">
+        <Console v-if="isSizeSwitchable" :options="product.sizes" label-key="sizeName" @change="setSizeIndex" />
+        <p v-else>{{ chosenSize.sizeName }}</p>
+      </div>
+      <div class="card__options" v-if="chosenSize.options">
         <Console
-          v-if="chosenSize.options"
+          v-if="isOptionsSwitchable"
           :options="chosenSize.options"
           label-key="optionName"
           @change="setOptionIndex"
         />
-      </template>
-      <p v-else>{{ chosenSize.sizeName }}</p>
-
+        <p v-else>{{ chosenSize.options[optionIndex].optionName }}</p>
+      </div>
       <div class="card__action">
-        <div class="card__price">{{ chosenSize.price }} ₽</div>
+        <div class="card__price">{{ numberWithSpaces(price) }} ₽</div>
         <drive-button class="card__button button--wide" :active="amount > 0" @click="handleAddToCard(product)">
           <template #initial>
             Добавить
@@ -50,31 +49,38 @@ export default {
   data() {
     return {
       sizeIndex: 0,
+      optionIndex: 0,
     };
   },
   computed: {
     ...mapState(['page']),
-    isSizeSwitchable() {
-      return this.product.sizes.length > 1;
+    photoUrl() {
+      return this.chosenSize.photo ? this.chosenSize.photo.path : '';
     },
     chosenSize() {
       return this.product.sizes[this.sizeIndex];
     },
-    photoUrl() {
-      return this.chosenSize.photo ? this.chosenSize.photo.path : '';
+    isSizeSwitchable() {
+      return this.product.sizes.length > 1;
+    },
+    isOptionsSwitchable() {
+      return this.chosenSize.options.length > 1;
     },
     cartProductId() {
-      return `${this.product.categoryId}-${this.product._id}-${this.sizeIndex}`;
+      const optionSuffix = this.chosenSize.options ? `-${this.optionIndex}` : '';
+      return `${this.product.categoryId}-${this.product._id}-${this.sizeIndex}${optionSuffix}`;
     },
     amount() {
       return this.$store.getters.getAmountInCardById(this.cartProductId);
     },
-    tags() {
-      return this.product.tags ? this.product.tags.filter((tag) => tag !== '') : [];
+    price() {
+      const extraCharge = this.chosenSize.options ? this.chosenSize.options[this.optionIndex].extraCharge : 0;
+      return this.chosenSize.price + extraCharge;
     },
   },
   methods: {
     ...mapActions(['addToCart']),
+    numberWithSpaces,
     zoomImage() {
       if (!this.page.isMobile) {
         EventBus.$emit('zoom-image', this.$refs.productImage);
@@ -87,23 +93,28 @@ export default {
       this.sizeIndex = sizeIndex;
     },
     setOptionIndex(optionIndex) {
-      console.log(optionIndex);
+      this.optionIndex = optionIndex;
     },
     handleAddToCard(product) {
       const { _id, categoryId, title } = product;
       const {
         cartProductId,
         sizeIndex,
-        chosenSize: { price, priceNew, sizeName },
+        optionIndex,
+        price,
+        chosenSize: { sizeName, options },
       } = this;
+      const optionName = options ? options[optionIndex].optionName : '';
       this.addToCart({
         cartProductId,
         productId: _id,
         categoryId,
         sizeIndex,
+        optionIndex,
         title,
-        price: priceNew || price,
+        price,
         sizeName,
+        optionName,
       });
     },
   },
@@ -155,6 +166,10 @@ export default {
     }
   }
 
+  &__options {
+    margin-bottom: 10px;
+  }
+
   &__action {
     display: flex;
     align-items: center;
@@ -169,13 +184,6 @@ export default {
 
   &__button {
     max-width: 62%;
-  }
-
-  &__tags {
-    position: absolute;
-    right: 8px;
-    bottom: 8px;
-    display: flex;
   }
 
   &__tag {

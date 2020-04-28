@@ -1,6 +1,8 @@
 <template>
   <div class="position">
-    <div class="position__title" :title="position.title">{{ position.title }} {{ position.sizeName }}</div>
+    <div class="position__title" :title="title">
+      {{ title }}
+    </div>
     <div class="position__status">
       <button class="position__button" @click="changeAmount({ cartProductId: position.cartProductId, modifier: -1 })">
         –
@@ -24,6 +26,12 @@ export default {
     position: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    title() {
+      const { title, sizeName, optionName } = this.position;
+      return ` ${title} ${sizeName} ${optionName}`;
     },
   },
   methods: {
@@ -52,9 +60,6 @@ export default {
   &__status {
     margin: 4px 0;
     display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   &__status {
@@ -63,7 +68,7 @@ export default {
 
   &__amount {
     display: inline-block;
-    margin: 0 0.2em;
+    margin: 0 3px;
   }
 
   &__button {

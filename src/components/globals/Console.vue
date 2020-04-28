@@ -91,7 +91,7 @@ export default {
   &__option {
     position: relative;
     display: block;
-    flex-grow: 1;
+    width: 100%;
     padding: 4px 0;
     color: $--color-gray-600;
     text-align: center;

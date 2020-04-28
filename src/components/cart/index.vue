@@ -6,7 +6,7 @@
       </div>
       <div class="cart__total">
         <div class="cart__total-label">Всего</div>
-        <div class="cart__total-sum">{{ totalCost }} ₽</div>
+        <div class="cart__total-sum">{{ numberWithSpaces(totalCost) }} ₽</div>
       </div>
     </div>
   </div>
@@ -14,7 +14,8 @@
 
 <script>
 import { mapActions, mapGetters, mapState } from 'vuex';
-import Position from './Position';
+import { numberWithSpaces } from '@/utils/index.js';
+import Position from './Position.vue';
 
 export default {
   name: 'Cart',
@@ -30,6 +31,7 @@ export default {
   },
   methods: {
     ...mapActions(['changeAmount', 'closeCart']),
+    numberWithSpaces,
   },
 };
 </script>

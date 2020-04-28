@@ -127,11 +127,12 @@ export default {
 
       const order = Object.keys(cart)
         .map((key) => cart[key])
-        .map(({ amount, productId, categoryId, sizeIndex }) => ({
+        .map(({ amount, productId, categoryId, sizeIndex, optionIndex }) => ({
           amount,
           productId,
           categoryId,
           sizeIndex,
+          optionIndex,
         }));
 
       return {
