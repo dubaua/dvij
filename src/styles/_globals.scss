@@ -1,0 +1,29 @@
+@import './_colors.scss';
+@import './_breakpoints.scss';
+@import './_transitions.scss';
+
+$font-title: 'Roboto Slab', serif;
+$font-body: 'Roboto', sans-serif;
+
+$font-size-75: 12px;
+$font-size-100: 16px;
+$font-size-200: 20px;
+$font-size-300: 24px;
+
+$ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+@mixin fixed-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@mixin numbers {
+  -moz-font-feature-settings: 'tnum' 1;
+  -ms-font-feature-settings: 'tnum' 1;
+  -o-font-feature-settings: 'tnum' 1;
+  -webkit-font-feature-settings: 'tnum' 1;
+  font-feature-settings: 'tnum' 1;
+}

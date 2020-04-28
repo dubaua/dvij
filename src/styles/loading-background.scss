@@ -1,0 +1,17 @@
+@import '~@/styles/_globals.scss';
+
+.loading-background {
+  background: $color-gray-200;
+  background-image: linear-gradient(-90deg, $color-gray-200 0px, $color-gray-75 40px, $color-gray-200 80px);
+  background-attachment: fixed;
+  animation: loading 1.62s linear 0.38s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 0vw;
+  }
+  100% {
+    background-position: 100vw;
+  }
+}

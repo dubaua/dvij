@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@400;500;700&display=swap&subset=cyrillic');
+@import '~@/styles/_grid.scss';
+@import '~@/styles/_globals.scss';
+@import '~@/styles/typography.scss';
+@import '~@/styles/loading-background.scss';
+
+
+html {
+  overflow-y: scroll;
+  min-height: 100vh;
+  font-family: $font-body;
+}
+
+*:focus {
+  outline: none;
+}
