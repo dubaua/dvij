@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'DummyCard'
+  name: 'DummyCard',
 };
 </script>
 
@@ -45,12 +45,12 @@ export default {
 
   &__title {
     margin: 8px 0 22px;
-    height: $font-size-300 * 0.6;
+    height: $--font-size-300 * 0.6;
   }
 
   &__description {
     margin: 0 0 12px;
-    height: $font-size-100 * 0.6;
+    height: $--font-size-100 * 0.6;
 
     &--1 {
       width: 95%;

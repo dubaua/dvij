@@ -1,14 +1,16 @@
 @import './_colors.scss';
 @import './_breakpoints.scss';
 @import './_transitions.scss';
+@import './_variables.scss';
 
 $font-title: 'Roboto Slab', serif;
 $font-body: 'Roboto', sans-serif;
 
-$font-size-75: 12px;
-$font-size-100: 16px;
-$font-size-200: 20px;
-$font-size-300: 24px;
+$--font-size-50: 12px;
+$--font-size-75: 14px;
+$--font-size-100: 16px;
+$--font-size-200: 20px;
+$--font-size-300: 24px;
 
 $--timing-in-out-cubic: cubic-bezier(0.62, 0, 0.38, 1);
 

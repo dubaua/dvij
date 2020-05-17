@@ -117,7 +117,7 @@ export default {
     margin-top: 16px;
     color: $--color-gray-400;
     font-family: $font-title;
-    font-size: $font-size-300;
+    font-size: $--font-size-300;
     text-align: center;
   }
 }

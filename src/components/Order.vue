@@ -189,7 +189,7 @@ $minFormHeight: 250px;
 
 .order {
   &__sent {
-    font-size: $font-size-300;
+    font-size: $--font-size-300;
     font-family: $font-title;
     text-align: center;
   }
@@ -197,7 +197,7 @@ $minFormHeight: 250px;
 
 .form {
   min-height: $minFormHeight;
-  padding: 0 #{$font-size-300} 16px;
+  padding: 0 #{$--font-size-300} 16px;
   & .form-group + .form-group {
     margin-top: 12px;
   }

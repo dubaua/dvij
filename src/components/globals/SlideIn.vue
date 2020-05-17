@@ -83,7 +83,7 @@ export default {
   &__title {
     margin: 0 16px 16px;
     padding: 16px 0;
-    font-size: $font-size-300;
+    font-size: $--font-size-300;
     font-family: $font-title;
     text-align: center;
     font-weight: normal;

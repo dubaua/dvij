@@ -67,7 +67,7 @@ export default {
   $console: &;
   padding: 3px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 16px;
   background: $--color-gray-200;
 
   &__notch {
@@ -80,7 +80,7 @@ export default {
     top: 0;
     left: 0;
     bottom: 0;
-    border-radius: 5px;
+    border-radius: 24px;
     background: $--color-gray-50;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 24px 30px 12px;
     transition-property: left;
@@ -93,6 +93,7 @@ export default {
     display: block;
     width: 100%;
     padding: 4px 0;
+    font-size: $--font-size-75;
     color: $--color-gray-600;
     text-align: center;
     cursor: pointer;

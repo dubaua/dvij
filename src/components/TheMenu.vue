@@ -39,7 +39,7 @@ export default {
     display: block;
     padding: 12px 16px;
     font-family: $font-title;
-    font-size: $font-size-200;
+    font-size: $--font-size-200;
     @include from('xl') {
       letter-spacing: -0.03em;
     }

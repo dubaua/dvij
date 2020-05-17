@@ -155,7 +155,7 @@ export default {
     h2 {
       margin: 0 0 10px;
       font-family: $font-title;
-      font-size: $font-size-300;
+      font-size: $--font-size-300;
       line-height: 1.2;
       font-weight: normal;
     }
@@ -167,7 +167,7 @@ export default {
   }
 
   &__options {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
   }
 
   &__action {
@@ -178,7 +178,7 @@ export default {
   }
 
   &__price {
-    font-size: $font-size-300;
+    font-size: $--font-size-300;
     max-width: 38%;
   }
 
@@ -189,7 +189,7 @@ export default {
   &__tag {
     background: $--color-gray-50;
     color: $--color-gray-900;
-    font-size: $font-size-75;
+    font-size: $--font-size-50;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: bold;

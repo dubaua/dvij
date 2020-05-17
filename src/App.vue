@@ -165,7 +165,7 @@ $panel-width: 320px;
 
   &__title {
     text-align: center;
-    font-size: $font-size-300;
+    font-size: $--font-size-300;
     font-family: $font-title;
   }
 }
