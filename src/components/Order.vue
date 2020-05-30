@@ -12,7 +12,7 @@
 
 <script>
 // TODO disable form while sending
-
+import BaseButton from '@/components/base-button/BaseButton.vue';
 import { sendForm } from '@/api/index.js';
 import { mapActions, mapMutations } from 'vuex';
 import animate from '@/utils/animate.js';
@@ -21,6 +21,9 @@ import * as ez from '@/utils/easings.js';
 
 export default {
   name: 'Order',
+    components: {
+    BaseButton,
+  },
   data() {
     return {
       isSending: false,

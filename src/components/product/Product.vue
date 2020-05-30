@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import Banner from '@/components/Banner.vue';
+import Icon from '@/components/icon/Icon.vue';
 import Card from './Card.vue';
 import DummyCard from './DummyCard.vue';
 import { getCollectionByKey } from '@/api/index.js';
@@ -46,6 +48,7 @@ import { DEFAULT_PRODUCT_ID } from '@/settings.js';
 export default {
   name: 'Product',
   components: {
+    Banner,
     Card,
     DummyCard,
   },

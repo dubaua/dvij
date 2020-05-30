@@ -8,9 +8,13 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import BaseButton from '@/components/base-button/BaseButton.vue';
 
 export default {
   name: 'Status',
+  components: {
+    BaseButton,
+  },
   computed: {
     ...mapGetters(['totalAmount', 'totalCost']),
     cartLabel() {

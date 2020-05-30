@@ -5,8 +5,13 @@
 </template>
 
 <script>
+import Icon from '@/components/icon/Icon.vue';
+
 export default {
   name: 'Logo',
+  components: {
+    Icon,
+  },
 };
 </script>
 

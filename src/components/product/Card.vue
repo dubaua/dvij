@@ -35,13 +35,18 @@
 </template>
 
 <script>
+import Console from '@/components/Console.vue';
+import DriveButton from '@/components/base-button/DriveButton.vue';
 import { mapActions, mapState, mapMutations } from 'vuex';
 import { numberWithSpaces } from '@/utils/index.js';
 import { DEFAULT_PRODUCT_ID } from '@/settings.js';
 
-/* eslint-disable no-underscore-dangle */
 export default {
   name: 'Card',
+  components: {
+    Console,
+    DriveButton,
+  },
   props: {
     product: Object,
   },

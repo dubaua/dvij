@@ -4,11 +4,9 @@ import '@/styles/main.scss';
 import Vue from 'vue';
 import Vue2TouchEvents from 'vue2-touch-events';
 import VueFormGenerator from 'vue-form-generator';
-import '@/components/globals';
-import App from './App';
+import App from './App.vue';
 import router from '@/router.js';
 import store from '@/store/index.js';
-// import '@/transform.js';
 
 const isDev = process.env.NODE_ENV === 'development';
 

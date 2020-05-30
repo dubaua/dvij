@@ -41,15 +41,17 @@
 </template>
 
 <script>
-import TheMenu from '@/components/TheMenu';
-import Info from '@/components/Info';
-import Cart from '@/components/cart';
-import Order from '@/components/Order';
-import Status from '@/components/cart/Status';
-import AppFooter from '@/components/AppFooter';
-import Logo from '@/components/Logo';
-import Zoom from '@/components/Zoom';
-import EmptyCart from '@/components/EmptyCart';
+import TheMenu from '@/components/TheMenu.vue';
+import Info from '@/components/Info.vue';
+import Cart from '@/components/cart/Cart.vue';
+import Order from '@/components/Order.vue';
+import Status from '@/components/cart/Status.vue';
+import AppFooter from '@/components/AppFooter.vue';
+import Logo from '@/components/Logo.vue';
+import Zoom from '@/components/Zoom.vue';
+import EmptyCart from '@/components/EmptyCart.vue';
+import SlideIn from '@/components/SlideIn.vue';
+import Overlay from '@/components/Overlay.vue';
 import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
 import { debounce } from 'throttle-debounce';
 import { MOBILE_THRESHOLD } from './settings';
@@ -67,6 +69,8 @@ export default {
     TheMenu,
     Zoom,
     EmptyCart,
+    SlideIn,
+    Overlay,
   },
   data() {
     return {

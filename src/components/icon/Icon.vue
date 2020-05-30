@@ -5,11 +5,7 @@
 </template>
 
 <script>
-function importAll(r) {
-  r.keys().forEach(r);
-}
-
-importAll(require.context('./src', true, /\.svg$/));
+import './sprite/index.js';
 
 export default {
   name: 'Icon',
