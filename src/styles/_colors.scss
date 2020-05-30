@@ -5,10 +5,7 @@ $--color-primary-400: hsl($hue, 100%, 44%);
 $--color-primary-500: darken(desaturate($--color-primary-400, 2), 4);
 $--color-primary-600: darken(desaturate($--color-primary-400, 4), 6);
 
-$--color-tint: hsl($hue, 43%, 93%);
-$--color-tint--muted: hsl($hue, 33%, 98%);
-$--color-shade: hsl($hue, 81%, 11%);
-$--color-shade--muted: hsl($hue, 19%, 33%);
+$--color-shade: hsl(349, 81%, 11%);
 
 $--color-gray-contrast-50: hsl($hue-accent, 9%, 15%);
 $--color-gray-contrast-75: hsl($hue-accent, 9%, 18%);
@@ -37,7 +34,7 @@ $--color-gray-900: hsl($hue-accent, 9%, 17%);
 $--color-text: $--color-gray-900;
 $--color-text--title: $--color-gray-900;
 $--color-text--body: $--color-gray-800;
-$--color-text--contrast: white;
+$--color-text--contrast: $--color-gray-50;
 
 $--color-background: $--color-gray-50;
 $--color-background--contrast: $--color-gray-900;

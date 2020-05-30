@@ -8,7 +8,6 @@
 import { mapMutations } from 'vuex';
 import createObservable from 'create-observable';
 import animate from '@/utils/animate.js';
-import { EventBus } from '@/utils/index.js';
 
 const zoomDuration = 314;
 
@@ -31,20 +30,27 @@ export default {
       isActive: false,
     };
   },
+  computed: {
+    zoomedImage() {
+      return this.$store.state.page.zoomedImage;
+    },
+  },
   mounted() {
-    EventBus.$on('zoom-image', (zoomImageNode) => {
-      this.zoomIn(zoomImageNode);
-    });
-    EventBus.$on('zoom-out', () => {
-      this.zoomOut();
-    });
     document.addEventListener('keyup', this.keyPressed);
   },
   beforeDestroy() {
     document.removeEventListener('keyup', this.keyPressed);
   },
+  watch: {
+    zoomedImage(zoomImageNode) {
+      if (zoomImageNode) {
+        this.zoomIn(zoomImageNode);
+      } else {
+        this.zoomOut();
+      }
+    },
+  },
   methods: {
-    ...mapMutations(['setIsZoomed']),
     zoomIn(zoomImageNode) {
       this.originNode = zoomImageNode;
 
@@ -82,8 +88,6 @@ export default {
           this.progress.value = progress;
         },
       });
-
-      this.setIsZoomed(true);
     },
 
     zoomOut() {
@@ -103,7 +107,6 @@ export default {
         },
         onCancel: ({ progress }) => (this.progress.value = progress),
       });
-      this.setIsZoomed(false);
     },
 
     drawImageZoomPopup(progress) {

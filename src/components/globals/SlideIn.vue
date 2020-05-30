@@ -18,6 +18,7 @@
 
 <script>
 import { mapActions } from 'vuex';
+import { MOBILE_THRESHOLD } from '@/settings.js';
 
 export default {
   name: 'SlideIn',
@@ -44,7 +45,7 @@ export default {
   },
   computed: {
     isMobile() {
-      return window.innerWidth <= 1200;
+      return window.innerWidth <= MOBILE_THRESHOLD;
     },
     transitionName() {
       return `slide-${this.direction}`;

@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <section v-touch:swipe.right="openMenu" v-touch:swipe.left="closeMenu" class="page">
+    <section v-touch:swipe.left="openCart" v-touch:swipe.right="openMenu" class="page">
       <router-view />
     </section>
     <template v-if="page.isMobile">
       <slide-in direction="right" :is-active="page.isMenuOpen" swipe-action="closeMenu">
         <the-menu :items="menuItems" />
       </slide-in>
-      <slide-in direction="up" :is-active="page.isCartOpen" swipe-action="closeCart" title="Ваш заказ">
+      <slide-in direction="left" :is-active="page.isCartOpen" swipe-action="closeCart" title="Ваш заказ">
         <cart />
         <order />
         <empty-cart />
@@ -89,9 +89,9 @@ export default {
   methods: {
     ...mapMutations(['setMobile']),
     ...mapActions(['scheduleAction', 'closeMenu', 'closeCart']),
-    closeMenuSwipe() {
+    openCart() {
       if (this.page.isMobile) {
-        this.closeMenu();
+        this.scheduleAction({ next: 'openCart', blocking: 'Menu' });
       }
     },
     openMenu() {

@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade" @after-leave="unfreeze" @before-enter="freeze">
+  <transition name="fade" @after-leave="enableDocumentScroll" @before-enter="disableDocumentScroll">
     <div v-if="isOverlayed" class="overlay" @click.self="onOverlayClick">
       <icon class="overlay__icon" glyph="cross" :width="48" :height="48" />
     </div>
@@ -8,8 +8,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import { EventBus } from '@/utils/index.js';
-import toggleScroll from '@/utils/toggleScroll.js';
+import { disableDocumentScroll, enableDocumentScroll } from '@/utils/documentScroll.js';
 
 export default {
   name: 'Overlay',
@@ -17,16 +16,10 @@ export default {
     ...mapGetters(['isOverlayed']),
   },
   methods: {
-    ...mapActions(['closeAll']),
+    disableDocumentScroll,
+    enableDocumentScroll,
     onOverlayClick() {
-      this.closeAll();
-      EventBus.$emit('zoom-out');
-    },
-    freeze() {
-      toggleScroll(true);
-    },
-    unfreeze() {
-      toggleScroll(false);
+      this.$store.dispatch('closeAll');
     },
   },
 };

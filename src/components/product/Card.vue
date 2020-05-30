@@ -35,9 +35,8 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapState, mapMutations } from 'vuex';
 import { numberWithSpaces } from '@/utils/index.js';
-import { EventBus } from '@/utils/index.js';
 import { DEFAULT_PRODUCT_ID } from '@/settings.js';
 
 /* eslint-disable no-underscore-dangle */
@@ -80,10 +79,11 @@ export default {
   },
   methods: {
     ...mapActions(['addToCart']),
+    ...mapMutations(['setZoomedImage']),
     numberWithSpaces,
     zoomImage() {
       if (!this.page.isMobile) {
-        EventBus.$emit('zoom-image', this.$refs.productImage);
+        this.setZoomedImage(this.$refs.productImage);
       }
     },
     getTagClassName(tag) {

@@ -4,13 +4,13 @@ const state = {
   isMenuOpen: false,
   isCartOpen: false,
   isFrozen: false,
-  isZoomed: false,
+  zoomedImage: null,
   nextAction: null,
   isMobile: window.innerWidth < MOBILE_THRESHOLD,
 };
 
 const getters = {
-  isOverlayed: state => state.isCartOpen || state.isMenuOpen || state.isZoomed,
+  isOverlayed: (state) => state.isCartOpen || state.isMenuOpen || state.zoomedImage !== null,
 };
 
 const mutations = {
@@ -23,11 +23,8 @@ const mutations = {
   scheduleAction(state, payload) {
     state.nextAction = payload;
   },
-  setIsZoomed(state, payload) {
-    state.isZoomed = payload;
-  },
-  closeImage(state) {
-    state.zoomedImage = null;
+  setZoomedImage(state, payload) {
+    state.zoomedImage = payload;
   },
   setMobile(state, payload) {
     state.isMobile = payload;
@@ -56,6 +53,7 @@ const actions = {
   closeAll({ commit }) {
     commit('setCart', false);
     commit('setMenu', false);
+    commit('setZoomedImage', null);
   },
   scheduleAction({ state, commit, dispatch }, { next, blocking }) {
     if (state[`is${blocking}Open`]) {
