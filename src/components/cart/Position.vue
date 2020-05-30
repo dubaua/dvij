@@ -34,6 +34,13 @@ export default {
       return ` ${title} ${sizeName} ${optionName}`;
     },
   },
+  created() {
+    // если текущий
+    const { _id, amount, cartProductId } = this.position;
+    if (typeof cartProductId === 'undefined') {
+      this.changeAmount({ cartProductId: _id, modifier: -amount });
+    }
+  },
   methods: {
     numberWithSpaces,
     ...mapActions(['changeAmount']),
