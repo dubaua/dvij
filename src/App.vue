@@ -157,12 +157,13 @@ $panel-width: 320px;
 .cart-popup {
   $popup-width: 640px;
   position: fixed;
-  top: 15vh;
+  box-sizing: border-box;
+  top: 5vh;
   left: calc(50% - #{$popup-width * 0.5});
   max-width: 640px;
+  max-height: 90vh;
   width: 100%;
   padding: 16px 0;
-  max-height: 100%;
   overflow: auto;
   background: $--color-gray-50;
   color: $--color-gray-900;

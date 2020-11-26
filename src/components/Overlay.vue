@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade" @after-leave="enableDocumentScroll" @before-enter="disableDocumentScroll">
+  <transition name="fade" @leave="onLeave" @enter="onEnter">
     <div v-if="isOverlayed" class="overlay" @click.self="onOverlayClick">
       <icon class="overlay__icon" glyph="cross" :width="48" :height="48" />
     </div>
@@ -20,8 +20,12 @@ export default {
     ...mapGetters(['isOverlayed']),
   },
   methods: {
-    disableDocumentScroll,
-    enableDocumentScroll,
+    onLeave() {
+      enableDocumentScroll();
+    },
+    onEnter() {
+      disableDocumentScroll();
+    },
     onOverlayClick() {
       this.$store.dispatch('closeAll');
     },

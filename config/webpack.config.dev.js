@@ -36,13 +36,12 @@ const webpackConfig = merge(commonConfig, {
     overlay: true,
     port: 8000,
     stats: 'errors-only',
+    watchOptions: {
+      poll: true,
+    },
     proxy: {
-      '/cockpit/': {
-        target: 'http://polyana.dubaua.ru/',
-        changeOrigin: true,
-      },
-      '/order.php': {
-        target: 'https://polyana.dubaua.ru/',
+      '/cockpit': {
+        target: 'http://sale.xn----7sbabjp2blsvjgdxi.xn--p1ai/',
         changeOrigin: true,
       },
     },

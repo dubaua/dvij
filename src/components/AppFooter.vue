@@ -21,9 +21,13 @@
 
 <script>
 import { mapActions, mapGetters, mapState } from 'vuex';
+import Icon from '@/components/icon/Icon.vue';
 
 export default {
   name: 'AppFooter',
+    components: {
+    Icon,
+  },
   computed: {
     ...mapState(['page']),
     ...mapGetters(['totalAmount']),
